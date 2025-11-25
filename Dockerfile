@@ -20,7 +20,7 @@ RUN --mount=type=cache,target=/root/.cache/uv \
     rm -rf /app/.venv/lib/python3.12/site-packages/torch/include 2>/dev/null || true && \
     rm -rf /app/.venv/lib/python3.12/site-packages/torch/share 2>/dev/null || true
 
-COPY main/ ./main/
+COPY . .
 
 EXPOSE 8000
 
