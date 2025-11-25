@@ -20,5 +20,6 @@ This repository contains source code for our Flask API server that loads and pre
 4. Once done, run the Flask app using this command:
 
    ```bash
-   python3 ./api.py
+   chmod +x run.sh # only do this once
+   ./run.sh
    ```

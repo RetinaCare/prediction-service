@@ -163,7 +163,7 @@ def map_risk(score):
         3: "Severe Non-Proliferative Dr",
         4: "High Risk Of Progression",
     }
-    return score(risk_level)
+    return risk_level[score]
 
 
 # =============================================================
