@@ -27,4 +27,5 @@ EXPOSE 8000
 ENV PYTHONUNBUFFERED=1
 ENV FLASK_APP=main/app.py
 
+RUN cd /app/main
 CMD ["uv", "run", "gunicorn", "main.app:app", "--bind", "0.0.0.0:3000", "--timeout", "120", "--workers", "2"]
