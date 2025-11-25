@@ -26,6 +26,5 @@ EXPOSE 8000
 
 ENV PYTHONUNBUFFERED=1
 ENV FLASK_APP=main/app.py
-ENV PATH="/app/.venv/bin:$PATH"
 
-CMD ["gunicorn", "main.app:app", "--bind", "0.0.0.0:8000", "--timeout", "120", "--workers", "2"]
+CMD ["uv", "run", "gunicorn", "main.app:app", "--bind", "0.0.0.0:8000", "--timeout", "120", "--workers", "2"]
