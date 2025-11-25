@@ -24,5 +24,5 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/retinacare-backend:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/retinacare-prediction-service:latest
           platforms: linux/amd64
