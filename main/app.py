@@ -45,6 +45,14 @@ def load_model():
 resnet = load_resnet()
 model = load_model()
 
+
+@app.route('/', methods=['GET'])
+def base():
+    return jsonify({
+        'success': True,
+        'message': 'service is running'
+    }), 200
+
 @app.route('/predict', methods=['POST'])
 def predict():
     try:
