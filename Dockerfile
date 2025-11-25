@@ -20,13 +20,12 @@ RUN --mount=type=cache,target=/root/.cache/uv \
     rm -rf /app/.venv/lib/python3.12/site-packages/torch/include 2>/dev/null || true && \
     rm -rf /app/.venv/lib/python3.12/site-packages/torch/share 2>/dev/null || true
 
-ENV PATH="/app/.venv/bin:$PATH"
-
 COPY main/ ./main/
 
 EXPOSE 8000
 
 ENV PYTHONUNBUFFERED=1
 ENV FLASK_APP=main/app.py
+ENV PATH="/app/.venv/bin:$PATH"
 
 CMD ["gunicorn", "main.app:app", "--bind", "0.0.0.0:8000", "--timeout", "120", "--workers", "2"]
