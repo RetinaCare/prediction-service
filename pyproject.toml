@@ -1,7 +1,7 @@
 [project]
 name = "prediction-service"
 version = "0.1.0"
-description = "Add your description here"
+description = "Retina Care:: Prediction Service"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [

@@ -1,4 +1,4 @@
-FROM python:3.12-slim
+FROM python:3.12-slim as builder
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends curl ca-certificates \
@@ -16,12 +16,19 @@ COPY pyproject.toml uv.lock ./
 RUN --mount=type=cache,target=/root/.cache/uv \
     uv sync --frozen --no-install-project --no-dev
 
+# Stage 2
+FROM gcr.io/distroless/python3-debian12
+
+WORKDIR /app
+
+COPY --from=builder /app/.venv /app/.venv
+
 ENV PATH="/app/.venv/bin:$PATH"
+ENV PYTHONUNBUFFERED=1
+ENV FLASK_APP=main/app.py
 
 COPY main/ ./main/
 
 EXPOSE 8000
-ENV PYTHONUNBUFFERED=1
-ENV FLASK_APP=main/app.py
 
-CMD ["gunicorn", "main.app:app", "--bind", "0.0.0.0:8000", "--timeout", "120", "--workers", "2"]
+CMD ["/app/.venv/bin/gunicorn", "main.app:app", "--bind", "0.0.0.0:8000", "--timeout", "120", "--workers", "2"]
