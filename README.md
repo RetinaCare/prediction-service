@@ -1,4 +1,4 @@
-# Retina Care :: Prediction Service
+## Retina Care :: Prediction Service
 
 This repository contains source code for our Flask API server that loads and predicts Diabetic Retinopathy progression given clinical features such as:
 
@@ -6,7 +6,7 @@ This repository contains source code for our Flask API server that loads and pre
 - Duration (in years), and
 - Systolic Blood Pressure (mmHg)
 
-## Up and Running
+### Up and Running
 
 1. Make sure you have Python, uv, and Docker installed on your development environment.
 2. Git clone this repository.
@@ -17,6 +17,6 @@ This repository contains source code for our Flask API server that loads and pre
    uv add -r requirements.txt
    ```
 4. Once done, run the Flask app using this command:
-  ```bash
-  python3 ./api.py
-  ```
+   ```bash
+   python3 ./api.py
+   ```
