@@ -12,7 +12,7 @@ RUN sh /uv-installer.sh && rm /uv-installer.sh
 ENV PATH="/root/.local/bin/:$PATH"
 
 COPY requirements.txt .
-RUN uv pip install -r requirements.txt
+RUN uv add -r requirements.txt
 
 COPY main/ ./main/
 
