@@ -4,7 +4,7 @@ import os
 import torch
 import requests
 
-from model import FusionModel
+from main.model import FusionModel
 from flask import Flask, request, jsonify
 from werkzeug.utils import secure_filename
 from PIL import Image
